@@ -25,10 +25,20 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import HomeScreen from './screens/HomeScreen';
+// import SplashScreen from './screens/SplashScreen';
+import DetailScreen from './screens/DetailScreen';
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import { SafeAreaProvider } from 'react-native-safe-area-context'
+
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
 
+const Stack = createNativeStackNavigator();
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -38,9 +48,22 @@ function App(): JSX.Element {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-     <Text>Hello world</Text>
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="HomeScreen"
+            component={HomeScreen}
+            options={{ title: 'Home Screen' }}
+          />
+          <Stack.Screen
+            name="DetailScreen"
+            component={DetailScreen}
+            options={{ title: 'Home Screen' }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
 
