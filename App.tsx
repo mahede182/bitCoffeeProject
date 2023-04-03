@@ -25,14 +25,17 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+// import all component
 import HomeScreen from './screens/HomeScreen';
-// import SplashScreen from './screens/SplashScreen';
+import SplashScreen from './screens/SplashScreen';
 import DetailScreen from './screens/DetailScreen';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { SafeAreaProvider } from 'react-native-safe-area-context'
+
+
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -50,7 +53,8 @@ function App(): JSX.Element {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator initialRouteName='SplashScreen' screenOptions={{headerShown: false}}>
+          
           <Stack.Screen
             name="HomeScreen"
             component={HomeScreen}
@@ -60,6 +64,10 @@ function App(): JSX.Element {
             name="DetailScreen"
             component={DetailScreen}
             options={{ title: 'Home Screen' }}
+          />
+          <Stack.Screen
+            name = "SplashScreen"
+            component={SplashScreen}
           />
         </Stack.Navigator>
       </NavigationContainer>
