@@ -46,15 +46,15 @@ const DATA = [
   ];
 
 const Item = ({id, title, img, content}) => (
-    <>
-        <View style={styles.item}>
-            <Image style = {styles.img} source={img}/>
-        </View>
-        <View>
+<>
+    <View style={styles.item}>
+            <Image style = {styles.img} source={img}/>    
+        <View style={{paddingLeft: 24}}>
             <Text style={styles.title}>{title}</Text>
             <Text style={styles.subtitle}>{content}</Text>
         </View>
-    </>
+    </View>
+</>
     
   );
 
@@ -63,11 +63,11 @@ const HomeScreen = ({navigation}) => {
       <View style={styles.container}>
         <ImageBackground style={styles.sectionBgImage} source={require('../assets/headerImage.png')}>
             <View>
-                <Text style={{color: '#ffffff',paddingLeft: 24, paddingTop: 54, fontWeight: 'Light' }}>My Rewards</Text>
+                <Text style={{color: '#ffffff',paddingLeft: 24, paddingTop: 54, fontWeight: '200' }}>My Rewards</Text>
                 <Text style={{padding: 10, color: '#1E2946', backgroundColor: '#ffffff',height: 40, width: 60,marginLeft: 35,borderRadius: 10}}>$2.00</Text>
             </View>
             <View>
-                <Text style={{color: '#ffffff',paddingLeft: 24, paddingTop: 54, fontWeight: 'Light' }}>Pickup </Text>
+                <Text style={{color: '#ffffff',paddingLeft: 24, paddingTop: 54, fontWeight: '200' }}>Pickup </Text>
                 <Text style={{padding: 10, color: '#1E2946', backgroundColor: '#ffffff',height: 40, width: 120,marginLeft: 35,borderRadius: 10}}>Select -</Text>
             </View>
             
@@ -122,7 +122,9 @@ const HomeScreen = ({navigation}) => {
     },
     item:{
         flexDirection: 'row',
-        
+        padding: 16,
+        alignItems: 'center',
+        justifyContent: 'flex-start'
     }
 
   })

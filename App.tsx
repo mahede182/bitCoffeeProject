@@ -34,6 +34,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { SafeAreaProvider } from 'react-native-safe-area-context'
+import MainTabNavigator from './navigation/MainTabNavigation';
 
 
 
@@ -56,18 +57,9 @@ function App(): JSX.Element {
         <Stack.Navigator initialRouteName='SplashScreen' screenOptions={{headerShown: false}}>
           
           <Stack.Screen
-            name="HomeScreen"
-            component={HomeScreen}
+            name="MainTabNavigator"
+            component={MainTabNavigator}
             options={{ title: 'Home Screen' }}
-          />
-          <Stack.Screen
-            name="DetailScreen"
-            component={DetailScreen}
-            options={{ title: 'Home Screen' }}
-          />
-          <Stack.Screen
-            name = "SplashScreen"
-            component={SplashScreen}
           />
         </Stack.Navigator>
       </NavigationContainer>
