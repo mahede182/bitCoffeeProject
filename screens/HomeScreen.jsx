@@ -1,4 +1,7 @@
 import {View, Text, Button,ImageBackground, StyleSheet, Image, SafeAreaView, FlatList} from 'react-native'
+
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
 // import { StyleSheet } from 'react-native/Libraries/StyleSheet/StyleSheet';
 const DATA = [
     {
@@ -69,16 +72,21 @@ const HomeScreen = ({navigation}) => {
             <View>
                 <Text style={{color: '#ffffff',paddingLeft: 24, paddingTop: 54, fontWeight: '200' }}>Pickup </Text>
                 <Text style={{padding: 10, color: '#1E2946', backgroundColor: '#ffffff',height: 40, width: 120,marginLeft: 35,borderRadius: 10}}>Select -</Text>
-            </View>
-            
+            </View>    
         </ImageBackground>
-        <SafeAreaView style={styles.itemBg}>
+        <View style={styles.itemBg}>
+            <View style = {{flexDirection: 'row', padding: 5, justifyContent: 'space-around'}}>
+                <Text style={{color: "#fff",textDecorationLine: "underline"}} textDecorationLine="underline">Menu</Text>
+                <Text style={{color: "#fff"}}>Favourite</Text>
+                <Text style={{color: "#fff"}}>Prevous</Text>
+                <MaterialCommunityIcons name="ice-cream" color={"#CC9366"} size={30} />
+            </View>
             <FlatList
                 data={DATA}
                 renderItem={({item}) => <Item title={item.title} img={item.img} content={item.content}/>}
                 keyExtractor={item => item.id}
             />
-        </SafeAreaView>
+        </View>
       </View>
     );
   };
