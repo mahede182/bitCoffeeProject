@@ -61,6 +61,7 @@ function App(): JSX.Element {
             component={MainTabNavigator}
             options={{ title: 'Home Screen' }}
           />
+          <Stack.Screen name="DetailScreen" component={DetailScreen}/>
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
