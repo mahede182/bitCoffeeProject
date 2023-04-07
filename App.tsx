@@ -30,19 +30,18 @@ import HomeScreen from './screens/HomeScreen';
 import SplashScreen from './screens/SplashScreen';
 import DetailScreen from './screens/DetailScreen';
 
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import { SafeAreaProvider } from 'react-native-safe-area-context'
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 import MainTabNavigator from './navigation/MainTabNavigation';
-
-
 
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
 
 const Stack = createNativeStackNavigator();
+const Stack2 = createNativeStackNavigator();
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -54,14 +53,18 @@ function App(): JSX.Element {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName='SplashScreen' screenOptions={{headerShown: false}}>
-          
+        <Stack.Navigator
+          initialRouteName="SplashScreen"
+          screenOptions={{headerShown: false}}>
+          {/*  */}
           <Stack.Screen
             name="MainTabNavigator"
             component={MainTabNavigator}
-            options={{ title: 'Home Screen' }}
+            options={{title: 'Home Screen'}}
           />
-          <Stack.Screen name="DetailScreen" component={DetailScreen}/>
+          <Stack2.Screen name="HomeScreen" component={HomeScreen} />
+          <Stack2.Screen name="DetailScreen" component={DetailScreen} />
+          <Stack2.Screen name="SplashScreen" component={SplashScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

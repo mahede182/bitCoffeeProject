@@ -1,28 +1,44 @@
-import {View, Text, Button, StyleSheet} from 'react-native'
+import {View, Text, Button, StyleSheet, FlatList} from 'react-native';
+import Header from '../component/Header';
+import MidddleMenu from '../component/MidddleMenu';
+import DATA from '../utils/DATA';
+import Separator from '../component/Separator';
+import Item from '../component/Item';
+const DetailsScreen = ({navigation}) => {
+  const handleMenuPress = menu => {
+    setActiveMenu(menu);
+  };
 
-const DetailsScreen = ({navigation })  => {
+  const handleSearchPress = () => {
+    setIsSearchVisible(true);
+  };
+
   // const { itemId, otherParam } = route.params;
-    return (
-      <View style={styles.DetailsScreen}>
-        <Text>Details Screen</Text>
-        <Button
-          title="Go to Profile"
-          onPress={() => navigation.navigate('ProfileScreen')}
+  return (
+    <View style={styles.DetailsScreen}>
+      <Header />
+      <View style={styles.itemBg}>
+        <FlatList
+          data={DATA}
+          renderItem={({item}) => (
+            <Item
+              title={item.title}
+              img={item.img}
+              content={item.content}
+              navigation={navigation}
+            />
+          )}
+          keyExtractor={item => item.id}
+          ItemSeparatorComponent={Separator}
         />
-
-        {/* passing parameter to routes  */}
-      {/* <Text>itemId: {JSON.stringify(itemId)}</Text>
-      <Text>otherParam: {JSON.stringify(otherParam)}</Text> */}
-
-        <Button style={{padding: 10}} title="Go back" onPress={() => navigation.goBack()} />
       </View>
-    );
-  }
+    </View>
+  );
+};
 const styles = StyleSheet.create({
-    DetailsScreen: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
-    }
-})
-  export default DetailsScreen;
+  DetailsScreen: {},
+  itemBg: {
+    backgroundColor: '#161616',
+  },
+});
+export default DetailsScreen;
