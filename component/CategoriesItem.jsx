@@ -1,21 +1,21 @@
 import React from 'react';
 import {TouchableOpacity, View, Image, Text, StyleSheet} from 'react-native';
-const Item = ({id, title, img, content, navigation}) => (
+const CategoriesItem = ({id, title, img, content, categories, navigation}) => (
   <>
     <TouchableOpacity onPress={() => navigation.push('DetailsScreen')}>
       <View style={styles.item}>
-        <Image style={styles.img} source={img} />
         <View style={{paddingLeft: 24}}>
-          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.title}>{categories[0]}</Text>
           <View style={styles.contentWrapper}>
             <Text style={styles.subtitle}>{content}</Text>
           </View>
         </View>
+        <Image style={styles.img} source={img} />
       </View>
     </TouchableOpacity>
   </>
 );
-export default Item;
+export default CategoriesItem;
 
 const styles = StyleSheet.create({
   title: {
@@ -39,6 +39,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     padding: 16,
     alignItems: 'center',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
   },
 });

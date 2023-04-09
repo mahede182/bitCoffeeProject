@@ -28,7 +28,7 @@ import {
 // import all component
 import HomeScreen from './screens/HomeScreen';
 import SplashScreen from './screens/SplashScreen';
-import DetailScreen from './screens/DetailScreen';
+import DetailsScreen from './screens/DetailScreen';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -56,15 +56,10 @@ function App(): JSX.Element {
         <Stack.Navigator
           initialRouteName="SplashScreen"
           screenOptions={{headerShown: false}}>
-          {/*  */}
-          <Stack.Screen
-            name="MainTabNavigator"
-            component={MainTabNavigator}
-            options={{title: 'Home Screen'}}
-          />
-          <Stack2.Screen name="HomeScreen" component={HomeScreen} />
-          <Stack2.Screen name="DetailScreen" component={DetailScreen} />
-          <Stack2.Screen name="SplashScreen" component={SplashScreen} />
+          <Stack.Screen name="MainTabNavigator" component={MainTabNavigator} />
+          <Stack.Screen name="HomeScreen" component={HomeScreen} />
+          <Stack.Screen name="DetailsScreen" component={DetailsScreen} />
+          <Stack.Screen name="SplashScreen" component={SplashScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

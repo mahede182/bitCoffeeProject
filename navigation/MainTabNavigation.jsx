@@ -1,19 +1,20 @@
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import HomeScreen from '../screens/HomeScreen';
+import HomeStackNavigation from './HomeStackNavigation';
 
 const Tab = createMaterialBottomTabNavigator();
 
 const MainTabNavigator = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Home"
+      initialRouteName="SplashScreen"
       activeColor="#CC9366"
       inactiveColor="#FFFfff"
       barStyle={{backgroundColor: '#0B0B0B', padding: 5, shadowRadius: 20}}>
       <Tab.Screen
         name="Home"
-        component={HomeScreen}
+        component={HomeStackNavigation}
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({color}) => (
